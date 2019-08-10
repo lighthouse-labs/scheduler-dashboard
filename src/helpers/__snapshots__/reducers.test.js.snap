@@ -55,6 +55,18 @@ Object {
       "spots": 2,
     },
   ],
+  "interviewers": Object {
+    "1": Object {
+      "avatar": "https://i.imgur.com/LpaY82x.png",
+      "id": 1,
+      "name": "Sylvia Palmer",
+    },
+    "2": Object {
+      "avatar": "https://i.imgur.com/Nmx0Qxo.png",
+      "id": 2,
+      "name": "Tori Malcolm",
+    },
+  },
 }
 `;
 
@@ -110,6 +122,18 @@ Object {
       "spots": 2,
     },
   ],
+  "interviewers": Object {
+    "1": Object {
+      "avatar": "https://i.imgur.com/LpaY82x.png",
+      "id": 1,
+      "name": "Sylvia Palmer",
+    },
+    "2": Object {
+      "avatar": "https://i.imgur.com/Nmx0Qxo.png",
+      "id": 2,
+      "name": "Tori Malcolm",
+    },
+  },
 }
 `;
 
@@ -168,5 +192,17 @@ Object {
       "spots": 2,
     },
   ],
+  "interviewers": Object {
+    "1": Object {
+      "avatar": "https://i.imgur.com/LpaY82x.png",
+      "id": 1,
+      "name": "Sylvia Palmer",
+    },
+    "2": Object {
+      "avatar": "https://i.imgur.com/Nmx0Qxo.png",
+      "id": 2,
+      "name": "Tori Malcolm",
+    },
+  },
 }
 `;
