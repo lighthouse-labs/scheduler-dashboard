@@ -34,7 +34,7 @@
   "devDependencies": {
     "node-sass": "^4.12.0"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:8001",
   "jest": {
     "watchPathIgnorePatterns": [
       "<rootDir>/node_modules/"
