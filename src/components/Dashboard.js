@@ -8,8 +8,8 @@ import {
   getLeastPopularTimeSlot,
   getMostPopularDay,
   getInterviewsPerDay
- } from "helpers/selectors";
-
+} from "helpers/selectors";
+import { setInterview } from "helpers/reducers";
 
 const data = [
   {
@@ -48,6 +48,7 @@ class Dashboard extends Component {
     this.setState((previousState) => ({ focused: previousState.focused ? null : id }));//?
   }
 
+
   componentDidMount() {
     const focused = JSON.parse(localStorage.getItem("focused"));
 
@@ -67,6 +68,18 @@ class Dashboard extends Component {
         interviewers: interviewers.data
       });
     });
+
+    this.socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
+    this.socket.onmessage = event => {
+      const data = JSON.parse(event.data);
+
+      if (typeof data === "object" && data.type === "SET_INTERVIEW") {
+        this.setState(previousState =>
+          setInterview(previousState, data.id, data.interview)
+        );
+      }
+    };
   }
 
   componentDidUpdate(previousProps, previousState) {
@@ -79,7 +92,7 @@ class Dashboard extends Component {
     const dashboardClasses = classnames("dashboard", {
       "dashboard--focused": this.state.focused
     });
-    
+
     if (this.state.loading) {
       return <Loading />;
     }
@@ -94,6 +107,10 @@ class Dashboard extends Component {
       ));
 
     return <main className={dashboardClasses}>{panels}</main>;
+  }
+
+  componentWillUnmount() {
+    this.socket.close();
   }
 }
 
